@@ -5,7 +5,7 @@ An embedded IoT access-control system built around an **ESP32 microcontroller**.
 The project consists of two parts:
 
 * **ESP32 firmware** — this repository
-* **Android mobile application** — [[`IoT_APP`](https://github.com/MarselDav/IoT_APP)](https://github.com/MarselDav/ESP32-IoT-Controller-App)
+* **Android mobile application** — [[`IoT_APP`](https://github.com/MarselDav/IoT_APP)]
 
 Together, they form an end-to-end IoT system:
 
