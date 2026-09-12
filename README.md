@@ -224,7 +224,7 @@ The exact hardware wiring depends on the physical implementation of the storage 
 ## Project Structure
 
 ```text
-IoT/
+ESP32-IoT-Storage-Locker-Controller/
 ├── buzzeralarm.h
 ├── connectionmanager.cpp
 ├── connectionmanager.h
@@ -242,7 +242,7 @@ The repository is intentionally split into small modules instead of implementing
 
 The ESP32 firmware is designed to work together with the companion Android application.
 
-### [`IoT_APP`](https://github.com/MarselDav/IoT_APP)
+### [`Android App`](https://github.com/MarselDav/ESP32-IoT-Controller-App)
 
 The application is implemented in **Python using Kivy/KivyMD** and provides the user interface for the controller.
 
@@ -260,51 +260,8 @@ The application repository contains the Android application code, Kivy UI defini
 
 For the complete project, see both repositories:
 
-* **Firmware:** [`MarselDav/IoT`](https://github.com/MarselDav/IoT)
-* **Mobile application:** [`MarselDav/IoT_APP`](https://github.com/MarselDav/IoT_APP)
-
-## Technologies
-
-### Embedded
-
-* C++
-* Arduino framework
-* ESP32
-* MPU6050
-* Relay control
-* Buzzer
-* `millis()`-based non-blocking timing
-
-### Networking
-
-* Wi-Fi
-* MQTT
-* JSON
-* `PubSubClient`
-* `WiFiClientSecure`
-
-### Mobile Application
-
-* Python
-* Kivy
-* KivyMD
-* Paho MQTT
-
-## Security Notes
-
-The project uses MQTT over a secure network connection.
-
-However, the current educational firmware implementation disables certificate verification for the secure client. Therefore, this implementation should **not** be considered production-grade secure communication.
-
-Before deploying the project in a real environment:
-
-* enable proper broker certificate verification;
-* use unique credentials;
-* store credentials outside the source code;
-* rotate any credentials that may have been exposed during development;
-* use appropriate access control and MQTT topic permissions.
-
-The repository should contain only placeholder configuration values rather than real Wi-Fi or MQTT credentials.
+* **ESP32 firmware** — this repository
+* **Android mobile application** — [`ESP32-IoT-Controller-App`](https://github.com/MarselDav/ESP32-IoT-Controller-App)
 
 ## Project Background
 
@@ -313,44 +270,3 @@ This project was developed as a university IoT project.
 The goal was to build a complete hardware-software system rather than an isolated microcontroller program. The project combines embedded firmware, sensors, actuators, wireless communication and a mobile control application.
 
 The firmware and mobile application were developed as two parts of the same system.
-
-## What I Learned
-
-This project provided practical experience with:
-
-* ESP32 firmware development;
-* embedded C++;
-* modular firmware architecture;
-* MQTT-based communication;
-* JSON message protocols;
-* Wi-Fi connectivity;
-* secure network connections;
-* sensor integration;
-* relay and actuator control;
-* non-blocking embedded programming;
-* event-driven alarm handling;
-* mobile-to-device communication;
-* designing a complete IoT system across multiple software components.
-
-A particularly important part of the project was coordinating asynchronous events: network connectivity, MQTT messages, sensor events, automatic lock timing and alarm behavior all have to operate without blocking the main controller loop.
-
-## Limitations
-
-This is an educational IoT project rather than a production access-control system.
-
-Some areas that would require additional work for production use include:
-
-* robust certificate management;
-* secure credential storage;
-* stronger authentication and authorization;
-* persistent configuration;
-* OTA firmware updates;
-* more comprehensive fault handling;
-* automated testing;
-* production-grade hardware and electrical protection.
-
-## Related Repository
-
-**Mobile application:** [`IoT_APP`](https://github.com/MarselDav/IoT_APP)
-
-**Firmware:** [`IoT`](https://github.com/MarselDav/IoT)
